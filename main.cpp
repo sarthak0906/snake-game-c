@@ -1,17 +1,18 @@
 #include<bits/stdc++.h>
+#include<conio.h>
 
 using namespace std;
 
 typedef long long int ll;
 
-struct node{
+struct node1{
 	int x;
 	int y;
-	struct node * next;
-	struct node * prev;	
-}start,last;
+	struct node1 * next;
+	struct node1 * prev;	
+}*start,*last;
 
-typedef struct node * node;
+typedef struct node1 * node;
 
 node newnode(int x, int y){
 	node temp = (node)malloc(sizeof(node));
