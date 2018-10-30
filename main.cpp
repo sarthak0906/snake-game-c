@@ -78,12 +78,12 @@ int main(){
 		else if (c == 's') movedown();
 		else if (c == 'd') moveright();
 		
-		if (start->x == fruitx && start->y == fruity){
-				node temp = newnode(start->x+1,start->y);
-				temp->next = start;
-				start->prev = temp;
-				start = temp;
-		}
+//		if (start->x == fruitx && start->y == fruity){
+//				node temp = newnode(start->x+1,start->y);
+//				temp->next = start;
+//				start->prev = temp;
+//				start = temp;
+//		}
 	}
 	return 0;
 }
