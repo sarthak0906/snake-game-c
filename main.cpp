@@ -21,10 +21,14 @@ int arr[600][600] = {{0}};
 for (int j=0;j<600;++j){
 	arr[0][j] = 0;
 	arr[599][j] = 0;
+	putpixel(0,j,black);
+	putpixel(599,j,black);
 }
 for (int j=0;j<600;++j){
 	arr[j][0] = 0;
 	arr[j][599] = 0;
+	putpixel(j,0,black);
+	putpixel(j,599,black);
 }
 
 node newnode(int x, int y){
@@ -59,6 +63,7 @@ void moveup(){
 	start = temp;
 	putpixel(start->x,start->y,WHITE);
 	putpixel(last->x,last->y,BLACK);
+	arr[start->x][start->y] = 0;
 	arr[last->x][last->y] = 0;
 	last = last->prev;
 	last->next = NULL;
@@ -72,6 +77,7 @@ void movedown(){
 	start = temp;
 	putpixel(start->x,start->y,WHITE);
 	putpixel(last->x,last->y,BLACK);	
+	arr[start->x][start->y] = 0;
 	arr[last->x][last->y] = 0;
 	last = last->prev;
 	last->next = NULL;
@@ -85,6 +91,7 @@ void moveleft(){
 	start = temp;
 	putpixel(start->x,start->y,WHITE);
 	putpixel(last->x,last->y,BLACK);
+	arr[start->x][start->y] = 0;
 	arr[last->x][last->y] = 0;
 	last = last->prev;
 	last->next = NULL;
@@ -98,6 +105,7 @@ void moveright(){
 	start = temp;
 	putpixel(start->x,start->y,WHITE);
 	putpixel(last->x,last->y,BLACK);
+	arr[start->x][start->y] = 0;
 	arr[last->x][last->y] = 0;
 	last = last->prev;
 	last->next = NULL;
