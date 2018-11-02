@@ -4,10 +4,6 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-//using namespace std;
-
-typedef long long int ll;
-
 struct node1{
 	int x;
 	int y;
@@ -31,7 +27,7 @@ node newnode(int x, int y){
 void startgame(){
 	int j;
 	node temp = start;
-	struct node* t;
+	node t;
 	start = NULL;
 	start = newnode(150,150);
 	for (j=0;j<6;j++){
@@ -41,13 +37,16 @@ void startgame(){
 		temp->next = t;
 		t->prev = temp;
 		temp = t;
+		last = temp;
 	}
 	putpixel(temp->x,temp->y,WHITE);
 	arr[temp->x][temp->y] = 1;
+	last = temp;
 }
 
 void moveup(){
 	node temp = newnode(start->x,start->y+1);
+
 	temp->next = start;
 	start->prev = temp;
 	start = temp;
@@ -104,15 +103,19 @@ void moveright(){
 
 int main(){
 	//int j;
+	int gdriver = DETECT, gmode, errorcode;
 	int gd = DETECT, gm,j;
 	char c;
-	initgraph(&gd, &gm, "C:\\TC\\BGI");
+	//scanf ("%c",&c);
+	//initgraph(&gdriver, &gmode, "");
+	initgraph(&gd,&gm,"C://TURBOC3//BGI");
 	for (j=0;j<150;j++){
 		arr[0][j] = 0;
 		arr[149][j] = 0;
-		putpixel(0,j,BLACK);
-		putpixel(149,j,BLACK);
+		putpixel(0,j,WHITE);
+		putpixel(149,j,WHITE);
 	}
+	getch();
 	for (j=0;j<150;j++){
 		arr[j][0] = 0;
 		arr[j][149] = 0;
@@ -125,8 +128,8 @@ int main(){
 		if (kbhit()){ // checking if any key was hitted by the user
 			c = getch();
 		}
-		start->y;
-		start->x;
+	   //	start->y;
+	   //	start->x;
 		if ((int) c == 27) break; // checking if the key hitted was esc
 		if (c == 'w') moveup();
 		else if (c == 'a') moveleft();
@@ -143,3 +146,4 @@ int main(){
 	closegraph();
 	return 0;
 }
+
